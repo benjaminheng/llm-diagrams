@@ -8,7 +8,7 @@ import (
 	"os/exec"
 	"strings"
 
-	"github.com/benjaminheng/plantuml-llm/anthropic"
+	"github.com/benjaminheng/llm-diagrams/anthropic"
 )
 
 type PageData struct {

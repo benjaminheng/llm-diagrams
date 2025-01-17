@@ -1,4 +1,4 @@
-module github.com/benjaminheng/plantuml-llm
+module github.com/benjaminheng/llm-diagrams
 
 go 1.22.4
 
