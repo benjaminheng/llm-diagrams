@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PlantUML Generator</title>
+    <style>
+        body {
+          font-family: sans-serif;
+          font-size: 14px;
+        }
+        .container {
+            display: flex;
+            width: 100%;
+            gap: 1em;
+        }
+        .column {
+            width: 50%; /* Fixed equal width */
+            padding: 1em;
+            border: 1px solid #ccc;
+        }
+        .right-column {
+            width: 50%; /* Fixed equal width */
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+        }
+        .row {
+            padding: 1em;
+            border: 1px solid #ccc;
+        }
+        .plantuml-source {
+          font-size: 12px;
+        }
+        textarea {
+            width: 100%;
+            height: 450px;
+            margin-bottom: 10px;
+        }
+        img {
+            max-width: 100%;
+        }
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="column">
+            <h2>Input Description</h2>
+            <form method="POST" action="/">
+                <textarea name="input" placeholder="Enter your diagram description here...">{{.Input}}</textarea>
+                <button type="submit">Generate</button>
+            </form>
+        </div>
+        <div class="right-column">
+            <div class="row">
+                <h2>Generated Diagram</h2>
+                {{if .DiagramURL}}
+                <img src="{{.DiagramURL}}" alt="Generated Diagram">
+                {{end}}
+            </div>
+            {{if .PlantUMLCode}}
+            <div class="row">
+                <h2>PlantUML Source</h2>
+                <pre class="plantuml-source">{{.PlantUMLCode}}</pre>
+            </div>
+            {{end}}
+        </div>
+    </div>
+</body>
+</html>
+
